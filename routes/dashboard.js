@@ -1,8 +1,8 @@
 var express = require('express');
 var router = express.Router();
+var isLoggedIn = require('../middlewares/auth');
 
-router.get('/', function(req, res, next) {
-	console.log('dashboard called');
+router.get('/',isLoggedIn, function(req, res, next) {	
   res.render('dashboard');
 });
 
